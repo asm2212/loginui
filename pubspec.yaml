@@ -75,6 +75,14 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
+ fonts:
+    - family: SanFrancisco
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+        - asset: assets/fonts/SF-Pro-Display-Bold.otf
+          weight: 700
+        - asset: assets/fonts/SF-Pro-Display-Light.otf
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

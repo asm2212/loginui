@@ -72,11 +72,13 @@ class _HomePageState extends State<HomePage> {
               height: 100,
               width: 570,
               padding: EdgeInsets.all(20),
-              child: RaisedButton(
-                  color: Colors.pink,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                  ),
                   child: Text("Logout", style: TextStyle(color: Colors.white)),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                       context,

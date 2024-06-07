@@ -173,11 +173,13 @@ class _SignupScreenState extends State<SignupScreen> {
             width: 570,
             height: 70,
             padding: EdgeInsets.only(top: 20),
-            child: RaisedButton(
-                color: Colors.pink,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
                 child: Text("Submit", style: TextStyle(color: Colors.white)),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
                 onPressed: () async {
                   if (kDebugMode) {
                     print(

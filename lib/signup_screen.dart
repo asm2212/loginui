@@ -38,142 +38,147 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      reverse: true,
-      padding: EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          // Sized Box
-          SizedBox(
-            height: 37.5,
-            width: 400,
-          ),
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(40, 38, 56, 1),
+      body: SingleChildScrollView(
+        reverse: true,
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 60,
+              width: 200,
+            ),
 
-          // Signup Text
-          Center(
-            child: Container(
-              height: 245,
-              width: 400,
-              alignment: Alignment.center,
-              child: Text(
-                "Signup",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold,
+            // Signup Text
+            Center(
+              child: Container(
+                height: 200,
+                width: 400,
+                alignment: Alignment.center,
+                child: Text(
+                  "Signup",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // Wrong password text
-          Visibility(
-            visible: _isVisible,
-            maintainSize: true,
-            maintainAnimation: true,
-            maintainState: true,
-            child: Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.all(10),
-              child: Text(
-                returnVisibilityString,
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 10,
+            SizedBox(
+              height: 20,
+            ),
+
+            // Wrong password text
+            Visibility(
+              visible: _isVisible,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  returnVisibilityString,
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // Signup Info
-          Container(
-            height: 215,
-            width: 530,
-            decoration: BoxDecoration(
+            // Signup Info
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.white),
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  onTap: () {
-                    setState(() {
-                      _isVisible = false;
-                    });
-                  },
-                  controller: usernameController, // Controller for Username
-                  decoration: InputDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    onTap: () {
+                      setState(() {
+                        _isVisible = false;
+                      });
+                    },
+                    controller: usernameController, // Controller for Username
+                    decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Username",
-                      contentPadding: EdgeInsets.all(20)),
-                  onEditingComplete: () => FocusScope.of(context).nextFocus(),
-                ),
-                Divider(
-                  thickness: 3,
-                ),
-                TextFormField(
-                  onTap: () {
-                    setState(() {
-                      _isVisible = false;
-                    });
-                  },
-
-                  controller: passwordController1, // Controller for Password
-                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(20),
+                    ),
+                    onEditingComplete: () => FocusScope.of(context).nextFocus(),
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  TextFormField(
+                    onTap: () {
+                      setState(() {
+                        _isVisible = false;
+                      });
+                    },
+                    controller: passwordController1, // Controller for Password
+                    decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Password",
                       contentPadding: EdgeInsets.all(20),
                       // Adding the visibility icon to toggle visibility of the password field
                       suffixIcon: IconButton(
-                        icon: Icon(_isObscure1
-                            ? Icons.visibility_off
-                            : Icons.visibility),
+                        icon: Icon(
+                            _isObscure1 ? Icons.visibility_off : Icons.visibility),
                         onPressed: () {
                           setState(() {
                             _isObscure1 = !_isObscure1;
                           });
                         },
-                      )),
-                  obscureText: _isObscure1,
-                ),
-                Divider(
-                  thickness: 3,
-                ),
-                TextFormField(
-                  onTap: () {
-                    setState(() {
-                      _isVisible = false;
-                    });
-                  },
-
-                  controller: passwordController2, // Controller for Password
-                  decoration: InputDecoration(
+                      ),
+                    ),
+                    obscureText: _isObscure1,
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  TextFormField(
+                    onTap: () {
+                      setState(() {
+                        _isVisible = false;
+                      });
+                    },
+                    controller: passwordController2, // Controller for Password
+                    decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Re-enter Password",
                       contentPadding: EdgeInsets.all(20),
                       // Adding the visibility icon to toggle visibility of the password field
                       suffixIcon: IconButton(
-                        icon: Icon(_isObscure2
-                            ? Icons.visibility_off
-                            : Icons.visibility),
+                        icon: Icon(
+                            _isObscure2 ? Icons.visibility_off : Icons.visibility),
                         onPressed: () {
                           setState(() {
                             _isObscure2 = !_isObscure2;
                           });
                         },
-                      )),
-                  obscureText: _isObscure2,
-                ),
-              ],
+                      ),
+                    ),
+                    obscureText: _isObscure2,
+                  ),
+                ],
+              ),
             ),
-          ),
 
-          // Signup Submit button
-          Container(
-            width: 570,
-            height: 70,
-            padding: EdgeInsets.only(top: 20),
-            child: ElevatedButton(
+            // Signup Submit button
+            Container(
+              width: double.infinity,
+              height: 70,
+              padding: EdgeInsets.only(top: 20),
+              child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink,
                   shape: RoundedRectangleBorder(
@@ -210,9 +215,11 @@ class _SignupScreenState extends State<SignupScreen> {
                           passwordController2.text, usernameController.text);
                     });
                   }
-                }),
-          ),
-        ],
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
